@@ -7,8 +7,8 @@ It extends native file and provide way to install plugins, but ExFile won't prov
 ## Install
 
 ```sh
-npm i -S ex-file
-yarn add ex-file
+npm i -S @ex-file/ex-file
+yarn add @ex-file/ex-file
 ```
 
 ## Usage
