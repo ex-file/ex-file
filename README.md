@@ -17,7 +17,7 @@ Create ExFile like a native file, or create ExFile by pass a native file.
 and ExFile works just like native file.
 
 ```javascript
-import ExFile from 'ex-file';
+import ExFile from '@ex-file/ex-file';
 
 const exFile1 = new ExFile(['string'], 'filename.txt', {
   lastModified: 1188489600000
@@ -37,7 +37,7 @@ A plugin is a object with property 'name', which contains a string, it should be
 and ExFile plugin should implements 'install' method, when plugin install to exfile, the method will be call and pass ExFile class.
 
 ```javascript
-import ExFile from 'ex-file';
+import ExFile from '@ex-file/ex-file';
 
 const plugin = {
   name: 'ex-file-is-modified-today',

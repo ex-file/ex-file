@@ -1,11 +1,11 @@
 {
-  "name": "ex-file",
+  "name": "@ex-file/ex-file",
   "version": "1.0.0",
   "description": "a library helps you select & process files",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
   "module": "build/module/index.js",
-  "repository": "https://github.com/geektheripper/ex-file",
+  "repository": "https://github.com/ex-file/ex-file",
   "license": "MIT",
   "keywords": [],
   "scripts": {
