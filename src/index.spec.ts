@@ -1,6 +1,6 @@
 // tslint:disable:no-expression-statement
 import { test } from 'ava';
-import ExFile, { createNewExFileClass, ExFilePlugin } from './';
+import ExFile, { ExFilePlugin } from './';
 
 const exFile = new ExFile(['clannad'], 'clannad.txt', {
   lastModified: 1188489600000
@@ -52,10 +52,9 @@ test('ExFile should be able to install plugin', t => {
     }
   };
 
-  const MikuFile = createNewExFileClass();
-  MikuFile.use(plugin);
+  ExFile.use(plugin);
 
-  const file = new MikuFile(['miku'], 'miku.txt', {
+  const file = new ExFile(['miku'], 'miku.txt', {
     lastModified: 1188489600000
   });
 
@@ -75,9 +74,8 @@ test('ExFile should install plugin just once when multiple install', t => {
     }
   };
 
-  const FukoFile = createNewExFileClass();
-  FukoFile.use(plugin);
-  FukoFile.use(plugin);
+  ExFile.use(plugin);
+  ExFile.use(plugin);
 
   t.is(installCound, 1);
 });
@@ -98,25 +96,24 @@ test('Example in readme should works', t => {
     }
   };
 
-  const YukineFile = createNewExFileClass();
-  YukineFile.use(plugin);
+  ExFile.use(plugin);
 
   const today = new Date();
-  const todayFile = new YukineFile(['yukine'], 'yukine.txt', {
+  const todayFile = new ExFile(['yukine'], 'yukine.txt', {
     lastModified: today.getTime()
   });
   t.is(todayFile.isModifiedToday(), true);
 
   const yestoday = new Date();
   yestoday.setDate(yestoday.getDate() - 1);
-  const yestodayFile = new YukineFile(['yukine'], 'yukine.txt', {
+  const yestodayFile = new ExFile(['yukine'], 'yukine.txt', {
     lastModified: yestoday.getTime()
   });
   t.is(yestodayFile.isModifiedToday(), false);
 
   const tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate() + 1);
-  const tomorrowFile = new YukineFile(['yukine'], 'yukine.txt', {
+  const tomorrowFile = new ExFile(['yukine'], 'yukine.txt', {
     lastModified: tomorrow.getTime()
   });
   t.is(tomorrowFile.isModifiedToday(), false);
